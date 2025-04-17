@@ -1,0 +1,29 @@
+//research
+
+//Tailwind css:
+
+//tailwind css can help my website look nice
+
+//this is needed in order to implement
+..
+import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
+export default defineConfig({
+  plugins: [
+    tailwindcss(),
+  ],
+})
+@import "tailwindcss";
+//then npm run dev
+..
+
+//might be needed to display chinese text:
+
+@theme {
+  --font-display: "SimHei", "sans-serif";
+
+
+  //user auth:
+
+  //user inputs user and password (use schema to keep track)?
+  function to verify if user and password already exist
