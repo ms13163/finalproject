@@ -1,7 +1,7 @@
 import './config.mjs'
 import mongoose from 'mongoose'
 import express from 'express'
-import Question from './db.mjs'
+import Question from './atlas/db.mjs'
 import url from 'url'
 import path from 'path'
 
