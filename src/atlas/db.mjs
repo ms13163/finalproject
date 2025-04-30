@@ -16,7 +16,7 @@ const QuestionSchema = new mongoose.Schema({
 
 const Question = mongoose.model("Questions", QuestionSchema)
 export default Question
-const result=await User.find()
-const result2=await Question.find()
-console.log(result)
-console.log(result2)
+// const result=await User.find()
+// const result2=await Question.find()
+// console.log(result)
+// console.log(result2)
