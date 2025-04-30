@@ -10,8 +10,8 @@
 <a href="contact.html">leave contact information</a>
 
   <div>
-    <label for="genre">Genre (ex. romance, action):</label>
-    <input type="text" id="name" name="name" required>
+    <label for="genre">Genre (ex. Romance, Action):</label>
+    <input type="text" id="genre" name="genre" required>
   </div>
  
   <button type="submit">search</button>
@@ -24,56 +24,151 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Search</title>
+     <p>one way to learn a language is to listen to it via media. Enter the genre of movie you like to watch and this will show you whats avalible in cantonese.</p>
 </head>
 <body>
     <h1>Movie Search Results</h1>
+
+
     <ul id="movie-list"></ul>
 
 
 
 <script>
+  const genres= [
+    {
+      "id": 28,
+      "name": "Action"
+    },
+    {
+      "id": 12,
+      "name": "Adventure"
+    },
+    {
+      "id": 16,
+      "name": "Animation"
+    },
+    {
+      "id": 35,
+      "name": "Comedy"
+    },
+    {
+      "id": 80,
+      "name": "Crime"
+    },
+    {
+      "id": 99,
+      "name": "Documentary"
+    },
+    {
+      "id": 18,
+      "name": "Drama"
+    },
+    {
+      "id": 10751,
+      "name": "Family"
+    },
+    {
+      "id": 14,
+      "name": "Fantasy"
+    },
+    {
+      "id": 36,
+      "name": "History"
+    },
+    {
+      "id": 27,
+      "name": "Horror"
+    },
+    {
+      "id": 10402,
+      "name": "Music"
+    },
+    {
+      "id": 9648,
+      "name": "Mystery"
+    },
+    {
+      "id": 10749,
+      "name": "Romance"
+    },
+    {
+      "id": 878,
+      "name": "Science Fiction"
+    },
+    {
+      "id": 10770,
+      "name": "TV Movie"
+    },
+    {
+      "id": 53,
+      "name": "Thriller"
+    },
+    {
+      "id": 10752,
+      "name": "War"
+    },
+    {
+      "id": 37,
+      "name": "Western"
+    }
+  ]
+
+ document.addEventListener('DOMContentLoaded', function () {
+
   document.getElementById('simpleForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  // Get form data
-  const formData = {
-    genre: document.getElementById('genre').value,
-   
-  };
-  
-  // Simple validation
-  if (!formData.genre) {
-    document.getElementById('responseMessage').textContent = 'Please fill all fields';
-    return;
-  }
+    e.preventDefault();
+
+    // Get user input from the genre field
+    const genreInput = document.getElementById('genre').value.trim();
+
+    // Validate input
+    if (!genreInput) {
+        document.getElementById('responseMessage').textContent = 'Please enter a genre';
+        return;
+    }
+
+    const genre = genres.find(g => g.name.toLowerCase() === genreInput.toLowerCase());
 
 
+if (!genre){
+    console.log(`Genre "${genreInput}" not found.`);
+     document.getElementById('responseMessage').textContent = 'Genre not found';
+        return;
 
-  const url = 'https://api.themoviedb.org/3/search/movie?query=h&include_adult=false&language=en-US&page=1';
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhODQ0OGRmNmYzZTQ2NWJlYTMxOWZjZWUyM2Y4Y2NhYyIsIm5iZiI6MTc0NTk3NTExNy42NTUsInN1YiI6IjY4MTE3NzRkNTdkOTU0OGU0NzI3ZWIyYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HOlRPVhNrpln4XkA_65z7UMg_VkoZm4DrThVkZ-r0aM'
-  }
-};
+}
 
- fetch(url, options)
-            .then(res => res.json())
-            .then(json => {
-                const movieList = document.getElementById('results');
-                
-                json.results.forEach(movie => {
-                    let listItem = document.createElement('li');
-                    listItem.textContent = `${movie.original_title} (${movie.title}) (${move.release_date})`;
-                    movieList.appendChild(listItem);
-                });
-            })
-            .catch(err => console.error(err));
+  const url=`https://api.themoviedb.org/3/discover/movie?with_genres=${genre.id}&include_adult=false&language=zh&page=1`;
 
 
- 
+console.log(encodeURIComponent(genreInput));
+    // Construct API request with user input
+    //const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=zh&page=1&sort_by=popularity.desc';
 
+//const url=`https://api.themoviedb.org/3/discover/movie?with_genres=${genreInput}&include_adult=false&language=zh&page=1`;
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhODQ0OGRmNmYzZTQ2NWJlYTMxOWZjZWUyM2Y4Y2NhYyIsIm5iZiI6MTc0NTk3NTExNy42NTUsInN1YiI6IjY4MTE3NzRkNTdkOTU0OGU0NzI3ZWIyYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HOlRPVhNrpln4XkA_65z7UMg_VkoZm4DrThVkZ-r0aM'
+
+        }
+    };
+console.log(url);
+    fetch(url, options)
+        .then(res => res.json())
+        .then(json => {
+            const movieList = document.getElementById('movie-list');
+            movieList.innerHTML = ''; // Clear previous results
+
+            json.results.forEach(movie => {
+                let listItem = document.createElement('li');
+                listItem.textContent = `${movie.original_title} ${movie.title} (${movie.release_date})`;
+                movieList.appendChild(listItem);
+            });
+        })
+        .catch(err => console.error(err));
+});
 });
 
   </script>

@@ -102,30 +102,30 @@ document.addEventListener('DOMContentLoaded', () => {
         questionContainer.appendChild(questionHeader);
 
     
-        const answerList = createElement("ul");
-        questionObject.answers.forEach(answer => {
-          const answerItem = createElement("li", {}, answer);
-          answerList.appendChild(answerItem);
-        });
-        questionContainer.appendChild(answerList);
+        // const answerList = createElement("ul");
+        // questionObject.answers.forEach(answer => {
+        //   const answerItem = createElement("li", {}, answer);
+        //   answerList.appendChild(answerItem);
+        // });
+        // questionContainer.appendChild(answerList);
 
        
-        const addButton = createElement('button', { class: 'add-answer-btn', 'data-question-id': questionObject._id }, "Add Answer");
-        questionContainer.appendChild(addButton);
+        // const addButton = createElement('button', { class: 'add-answer-btn', 'data-question-id': questionObject._id }, "Add Answer");
+        // questionContainer.appendChild(addButton);
 
     
         allQuestionsContainer.appendChild(questionContainer);
 
-        const addAnswerButtons = document.querySelectorAll('.add-answer-btn');
-      addAnswerButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const questionId = this.getAttribute('data-question-id');
-          const modalAnswer = document.getElementById('modal-answer');
-          const questionIdInput = document.getElementById('question-id');
-          questionIdInput.value = questionId;
-          openModal(modalAnswer);
-        });
-      });
+      //   const addAnswerButtons = document.querySelectorAll('.add-answer-btn');
+      // addAnswerButtons.forEach(button => {
+      //   button.addEventListener('click', function() {
+      //     const questionId = this.getAttribute('data-question-id');
+      //     const modalAnswer = document.getElementById('modal-answer');
+      //     const questionIdInput = document.getElementById('question-id');
+      //     questionIdInput.value = questionId;
+      //     openModal(modalAnswer);
+      //   });
+      // });
       });
 
      
