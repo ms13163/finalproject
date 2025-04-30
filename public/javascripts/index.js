@@ -1,3 +1,7 @@
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
   function createElement(type, attrs, ...children) {
@@ -37,7 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  btnCreateQuestion.addEventListener('click', () => {
+  btnCreateQuestion.addEventListener('click', async() => {
+  
+
     const questionText = questionTextarea.value.trim();
     if (questionText) {
       fetch('/questions/', {

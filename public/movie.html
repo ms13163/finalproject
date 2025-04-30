@@ -24,7 +24,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Search</title>
-     <p>one way to learn a language is to listen to it via media. Enter the genre of movie you like to watch and this will show you whats avalible in cantonese.</p>
+     <p>one way to learn a language is to listen to it via media. Enter the genre of movie you like to watch and this will show you whats avalible in cantonese. Or, you can generate a random link that will give you more information about a random cantonese musician!</p>
+      <button id="generateButton">generate!</button> 
+       <ul id="artlink"></ul>
 </head>
 <body>
     <h1>Movie Search Results</h1>
@@ -114,12 +116,53 @@
     }
   ]
 
+  const artists=["2R",
+"3G",
+"Adrian-Chan",
+"Alex-San",
+"C-Allstar",
+"CITYBEAT",
+"COOKIES"];
+
  document.addEventListener('DOMContentLoaded', function () {
+
+document.getElementById('generateButton').addEventListener('click', function(e) {
+
+
+
+const r = Math.floor(Math.random() * artists.length);
+
+ let final=artists[r]
+const url2 = `https://api.musicdb.io/v1/artist/${final}?api_key=a49a5bf2e3c237bdbcf7b613ba05ed54`
+console.log(final);
+console.log(url2)
+
+fetch(url2)
+  .then(response => response.json())
+  .then(data => {
+    console.log("API Response:", data);
+  })
+  .catch(error => console.error("Error fetching data:", error));
+
+const linkElement = document.createElement("a");
+        linkElement.href = url2;
+        linkElement.textContent = "Click here to view artist data";
+        linkElement.target = "_blank";
+
+        
+        const outputDiv = document.getElementById("artlink");
+        outputDiv.innerHTML = ""; // Clear previous link if necessary
+        outputDiv.appendChild(linkElement);
+
+
+
+})
+
 
   document.getElementById('simpleForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Get user input from the genre field
+   
     const genreInput = document.getElementById('genre').value.trim();
 
     // Validate input

@@ -1,7 +1,8 @@
 import './config.mjs'
 import mongoose from 'mongoose'
 import express from 'express'
-import Question from './atlas/db.mjs'
+import { Question, User } from './atlas/db.mjs'
+// import User from './atlas/db.mjs'
 import url from 'url'
 import path from 'path'
 
@@ -30,6 +31,21 @@ app.post('/questions/', async (req, res) => {
     res.status(500).json({ error: 'Failed to add question' });
   }
 })
+
+
+
+
+app.get('/users/', async (req, res) => {
+console.log("no users")
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (error) {
+
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 app.post('/questions/:id/answers/', async (req, res) => {
   const update = { "$push": { answers: req.body.answer } }

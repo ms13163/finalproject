@@ -2,11 +2,19 @@
   "name": "qanda",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
+    "autoprefixer": "^10.4.21",
+    "config": "^3.3.12",
     "dotenv": "^16.4.5",
     "express": "^4.21.2",
     "mongo": "^0.1.0",
     "mongo-sanitize": "^1.1.0",
     "mongoose": "^8.13.2",
+    "postcss": "^8.5.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "tailwindcss": "^4.1.4"
+  },
+  "devDependencies": {
+    "mocha": "^11.1.0"
   }
 }
