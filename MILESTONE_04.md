@@ -3,15 +3,15 @@ Milestone 04 - Final Project Documentation
 
 NetID
 ---
-(TODO: add your netid)
+ms13163
 
 Name
 ---
-(TODO: add your first and last name)
+Michaela Seah
 
 Repository Link
 ---
-(TODO: add the link to your repository in github, such as, https://github.com/[COURSE]/[REPO_NAME])
+https://github.com/ms13163/finalproject
 
 URL for deployed site 
 ---
@@ -19,52 +19,58 @@ URL for deployed site
 
 URL for form 1 (from previous milestone) 
 ---
-(TODO: add link to a functioning form)
+https://github.com/ms13163/finalproject/blob/main/public/index.html
 
 Special Instructions for Form 1
 ---
-(TODO: if your app requires special instructions to use or if your app requires authentication, add information here; otherwise, leave blank)
+leave a comment by pressing the button and then enter.
 
 URL for form 2 (for current milestone)
 ---
 (TODO: if applicable, add link to page that shows results of submitting form)
+https://github.com/ms13163/finalproject/blob/main/public/contact.html
 
 Special Instructions for Form 2
 ---
 (TODO: if your app requires special instructions to use or if your app requires authentication, add information here; otherwise, leave blank)
 
+Enter in information then press enter
 URL for form 3 (from previous milestone) 
 ---
-(TODO: add link to a functioning form)
+https://github.com/ms13163/finalproject/blob/main/public/movie.html
 
 Special Instructions for Form 3
 ---
-(TODO: if your app requires special instructions to use or if your app requires authentication, add information here; otherwise, leave blank)
+Enter a genre name like Romance or Action or Drama to get a list of movies. 
 
 First link to github line number(s) for constructor, HOF, etc.
 ---
-(TODO: add link to line number(s) here) 
+https://github.com/ms13163/finalproject/blob/main/public/contact.html line 37-41
 
 Second link to github line number(s) for constructor, HOF, etc.
 ---
-(TODO: add link to line number(s) here) 
+https://github.com/ms13163/finalproject/blob/main/public/javascripts/index.js line 7-16
 
 Short description for links above
 ---
-(TODO: describe what each link above is, one line each... for example: myFunction is a hof that retrieves json from a url, map is used to transform the Array of Person objects into an Array of strings that represents names)
+The first one is a contact class that takes in a name, email and message. Its added to an array of classes to detect/prevent duplicates, based on name. The second is a function that creates an element dynamically with javascript. 
 
 Link to github line number(s) for schemas (db.js or models folder)
 ---
-(TODO: add link to schemas)
+https://github.com/ms13163/finalproject/blob/main/src/atlas/db.mjs
 
 Description of research topics above with points
 ---
 (TODO: add description of research topics here, including point values for each, one per line... for example: 2 points - applied and modified "Clean Blog" Bootstrap theme)
 
+API 1 movies, 6 points
+API 2, music, 4 points
+
 Links to github line number(s) for research topics described above (one link per line)
 ---
 (TODO: add link to github line number(s), one per line for research topics ... for example, if using auth/passport, link to auth.js or where bulk of auth code is)
-
+https://github.com/ms13163/finalproject/blob/main/public/movie.html movies 162-213
+https://github.com/ms13163/finalproject/blob/main/public/movie.html music 129-160
 Optional project notes 
 --- 
 (TODO: optionall add add any other information required for using/testing the final project)
