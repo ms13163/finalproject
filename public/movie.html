@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+  <title>contact</title>
+ <link href="/stylesheets/style.css" rel="stylesheet">
+<form id="simpleForm">
+  <h3>Movie Reccomendation</h3>
+  <a href="index.html">leave a comment</a>
+ <a href="sound.html">learn the sounds</a>
+<a href="contact.html">leave contact information</a>
+
+  <div>
+    <label for="genre">Genre (ex. romance, action):</label>
+    <input type="text" id="name" name="name" required>
+  </div>
+ 
+  <button type="submit">search</button>
+</form>
+
+<div id="responseMessage"></div>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search</title>
+</head>
+<body>
+    <h1>Movie Search Results</h1>
+    <ul id="movie-list"></ul>
+
+
+
+<script>
+  document.getElementById('simpleForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Get form data
+  const formData = {
+    genre: document.getElementById('genre').value,
+   
+  };
+  
+  // Simple validation
+  if (!formData.genre) {
+    document.getElementById('responseMessage').textContent = 'Please fill all fields';
+    return;
+  }
+
+
+
+  const url = 'https://api.themoviedb.org/3/search/movie?query=h&include_adult=false&language=en-US&page=1';
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhODQ0OGRmNmYzZTQ2NWJlYTMxOWZjZWUyM2Y4Y2NhYyIsIm5iZiI6MTc0NTk3NTExNy42NTUsInN1YiI6IjY4MTE3NzRkNTdkOTU0OGU0NzI3ZWIyYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HOlRPVhNrpln4XkA_65z7UMg_VkoZm4DrThVkZ-r0aM'
+  }
+};
+
+ fetch(url, options)
+            .then(res => res.json())
+            .then(json => {
+                const movieList = document.getElementById('results');
+                
+                json.results.forEach(movie => {
+                    let listItem = document.createElement('li');
+                    listItem.textContent = `${movie.original_title} (${movie.title}) (${move.release_date})`;
+                    movieList.appendChild(listItem);
+                });
+            })
+            .catch(err => console.error(err));
+
+
+ 
+
+});
+
+  </script>
+</body>
+</html>
